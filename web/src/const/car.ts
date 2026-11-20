@@ -1,4 +1,4 @@
-import type { FuelType, Status } from '../types/car'
+import { fuelType, status, type Status } from '../types/car'
 
 export const statusLabel: Record<Status, string> = {
   READY: 'Ready',
@@ -14,16 +14,16 @@ export const statusColor: Record<Status, string> = {
   DISCHARGE: 'default',
 }
 
-export const fuelTypeLabel: Record<FuelType, string> = {
-  HYBRID: 'Hybrid',
-  EV: 'EV',
-  PHEV: 'PHEV',
-  GASOLINE: 'Gasolint',
-}
+export const statusOptions = [
+  { value: status.READY, label: 'Readly' },
+  { value: status.BOOKED, label: 'Booked' },
+  { value: status.MAINTAIN, label: 'Maintain' },
+  { value: status.DISCHARGE, label: 'Discharge' },
+]
 
-export const fuelTypeColor: Record<FuelType, string> = {
-  HYBRID: 'lime',
-  EV: 'cyan',
-  PHEV: 'geekblue',
-  GASOLINE: 'volcano',
-}
+export const fuelOptions = [
+  { value: fuelType.EV, label: 'EV' },
+  { value: fuelType.HYBRID, label: 'Hybrid' },
+  { value: fuelType.PHEV, label: 'PHEV' },
+  { value: fuelType.GASOLINE, label: 'Gasoline' },
+]

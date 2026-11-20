@@ -32,3 +32,5 @@ export interface Car {
   createdAt: string
   updatedAt: string
 }
+
+export type CreateCar = Omit<Car, 'id' | 'createdAt' | 'updatedAt'>

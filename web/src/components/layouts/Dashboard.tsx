@@ -4,32 +4,30 @@ import {
   CarOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  PlusOutlined,
   UnorderedListOutlined,
-  UploadOutlined,
-  VideoCameraOutlined,
 } from '@ant-design/icons'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const { Header, Sider, Content } = Layout
 
 const items = [
   {
-    key: '1',
+    key: '/',
     icon: <UnorderedListOutlined />,
     label: 'List Cars',
   },
   {
-    key: '2',
-    icon: <VideoCameraOutlined />,
-    label: 'nav 2',
-  },
-  {
-    key: '3',
-    icon: <UploadOutlined />,
-    label: 'nav 3',
+    key: '/create',
+    icon: <PlusOutlined />,
+    label: 'Create Car',
   },
 ]
 
 export default function Dashboard({ children }: { children: ReactNode }) {
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+
   const [collapsed, setCollapsed] = useState(false)
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -43,7 +41,13 @@ export default function Dashboard({ children }: { children: ReactNode }) {
           <span className="text-lg font-bold">{!collapsed && 'Car Manage'}</span>
         </div>
 
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={items} />
+        <Menu
+          theme="dark"
+          mode="inline"
+          selectedKeys={[pathname]}
+          items={items}
+          onClick={({ key }) => navigate(key)}
+        />
       </Sider>
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }}>

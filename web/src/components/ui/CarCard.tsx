@@ -13,8 +13,6 @@ export function CarCard({ car }: CarCardProps) {
   const tagLabel = statusLabel[car.status]
   const tagColor = statusColor[car.status]
 
-  console.log(car)
-
   return (
     <Card
       cover={
