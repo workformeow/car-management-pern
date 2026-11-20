@@ -7,3 +7,5 @@
 ## https://vitest.dev/guide/
 
 ## https://www.ananda.co.th/blog/thegenc/%E0%B8%A3%E0%B8%96%E0%B8%84%E0%B8%B1%E0%B8%99%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B9%84%E0%B8%AB%E0%B8%99%E0%B8%94%E0%B8%B5-hybrid-ev-phev-%E0%B8%A3%E0%B8%96%E0%B8%AA%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%B2%E0%B8%9B/
+
+## https://www.borntodev.com/2024/12/17/validation-api-zod/
