@@ -3,7 +3,7 @@ import { ERROR } from '../../shared/const'
 import { FuelType, Status } from '../../generated/prisma/enums'
 
 const thaiRegistrationNumberRegex = /^(([1-9][ก-ฮ]{2}|[ก-๙]{2,7})\s?[1-9]\d{0,3}|\d{2,3}-\d{4})$/
-const vehicleRegex = /[A-HJ-NPR-Z0-9]{17}/i
+const vehicleRegex = /^[A-HJ-NPR-Z0-9]{17}$/i
 const yearRegex = /^\d{4}$/
 
 const createSchema = z.object({

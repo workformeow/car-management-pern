@@ -2,6 +2,7 @@ import { DeleteFilled, EditOutlined } from '@ant-design/icons'
 import { Card, Tag } from 'antd'
 import type { Car } from '../../types/car'
 import { statusColor, statusLabel } from '../../const/car'
+import { useNavigate } from 'react-router-dom'
 
 interface CarCardProps {
   car: Car
@@ -10,6 +11,7 @@ interface CarCardProps {
 const PLACEHOLDER_IMG = 'https://placehold.co/600x400?text=No+Image'
 
 export function CarCard({ car }: CarCardProps) {
+  const navigate = useNavigate()
   const tagLabel = statusLabel[car.status]
   const tagColor = statusColor[car.status]
 
@@ -24,8 +26,12 @@ export function CarCard({ car }: CarCardProps) {
         </div>
       }
       actions={[
-        <EditOutlined key="edit" style={{ color: 'lightgreen' }} />,
-        <DeleteFilled key="delete" style={{ color: 'red' }} />,
+        <EditOutlined
+          key="edit"
+          onClick={() => navigate(`/${car.id}/update`)}
+          style={{ color: 'lightgreen' }}
+        />,
+        <DeleteFilled key="delete" />,
       ]}
     >
       <div className="flex flex-col gap-2">
