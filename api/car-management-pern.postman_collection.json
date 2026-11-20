@@ -1,0 +1,127 @@
+{
+  "info": {
+    "_postman_id": "8341da0b-d29c-4825-a89a-b21351560a5e",
+    "name": "car-management-pern",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4070296"
+  },
+  "item": [
+    {
+      "name": "List Cars",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/api/car",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "car"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/api/car/cmwozu5qx0000d0fgnufiro07",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "car",
+            "cmwozu5qx0000d0fgnufiro07"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Car",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"registrationNumber\": \"1กข 1234\",\r\n    \"brand\": \"Toyota\",\r\n    \"model\": \"Yaris Ativ\",\r\n    \"notes\": \"\",\r\n    \"vehicleId\": \"MR0FB8CD5N0123458\",\r\n    \"seats\": 5,\r\n    \"province\": \"bangkok\",\r\n    \"year\": \"2022\",\r\n    \"fuelType\": \"GASOLINE\",\r\n    \"mileage\": 45000,\r\n    \"color\": \"white\",\r\n    \"status\": \"READY\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api/car",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "car"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Car",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"registrationNumber\": \"1กข 1234\",\r\n    \"brand\": \"Toyota\",\r\n    \"model\": \"Yaris Ativ\",\r\n    \"notes\": \"\",\r\n    \"vehicleId\": \"MR0FB8CD5N0123458\",\r\n    \"seats\": 5,\r\n    \"province\": \"bangkok\",\r\n    \"year\": \"2022\",\r\n    \"fuelType\": \"GASOLINE\",\r\n    \"mileage\": 45000,\r\n    \"color\": \"white\",\r\n    \"status\": \"READY\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api/car/cmwozu5qx0000d0fgnufiro07",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "car",
+            "cmwozu5qx0000d0fgnufiro07"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete By ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/api/car/cmwozu5qx0000d0fgnufiro07",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "car",
+            "cmwozu5qx0000d0fgnufiro07"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "host",
+      "value": ""
+    }
+  ]
+}

@@ -63,3 +63,18 @@ export const update = async (
     next(error)
   }
 }
+
+export const remove = async (
+  req: Request<CarIdParams>,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    await carService.remove(req.params.id)
+    res.json({
+      message: SUCCESS.delete('car'),
+    })
+  } catch (error) {
+    next(error)
+  }
+}

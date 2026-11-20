@@ -78,3 +78,8 @@ export const update = async (id: string, input: CarUpdateInput): Promise<Car> =>
 
   return carResult
 }
+
+export const remove = async (id: string): Promise<void> => {
+  const existingCar = await prisma.car.delete({ where: { id } })
+  if (!existingCar) throw new createError.NotFound(ERROR.notFound('Car'))
+}
