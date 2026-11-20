@@ -15,3 +15,9 @@
 ## https://zod.dev/api#transform
 
 ## https://stackoverflow.com/questions/16644159/regex-to-remove-spaces-between-and
+
+## https://stevekinney.com/courses/full-stack-typescript/validating-query-and-path-parameters
+
+## https://medium.com/@xiaominghu19922/proper-error-handling-in-express-server-with-typescript-8cd4ffb67188
+
+## https://stackoverflow.com/questions/73524035/how-to-check-duplicate-value-when-update-in-nodejs

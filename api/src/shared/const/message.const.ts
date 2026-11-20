@@ -19,6 +19,7 @@ export const SUCCESS = {
 export const ERROR = {
   INTERNAL_SERVER_ERROR: 'Internal server error',
 
+  notFound: (item: string) => `${item} not found`,
   alreadyExists: (item: string) => `${item} already exists`,
   invalidField: (field: string) => `Invalid ${field} format`,
   requiredField: (field: string) => `${field} is required`,

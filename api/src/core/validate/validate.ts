@@ -1,18 +1,29 @@
 import type { Request, Response, NextFunction } from 'express'
-import { ZodType } from 'zod'
+import { ZodError, ZodType } from 'zod'
 
-export function validate(schema: ZodType) {
+type ValidationOptions = { body?: ZodType; params?: ZodType; query?: ZodType }
+
+export function validate(schemas: ValidationOptions) {
   return (req: Request, res: Response, next: NextFunction) => {
-    const result = schema.safeParse(req.body)
-    if (!result.success) {
-      const errorMessage = result.error.issues.map((issue) => ({
-        path: issue.path.join('.'),
-        message: issue.message,
-      }))
+    try {
+      if (schemas.body) {
+        const validatedBody = schemas.body.parse(req.body)
+        req.body = validatedBody as Request['body']
+      }
 
-      return res.status(400).json({ error: errorMessage })
+      if (schemas.params) {
+        const validateParams = schemas.params.parse(req.params)
+        req.params = validateParams as Request['params']
+      }
+
+      if (schemas.query) {
+        const validateQuery = schemas.query.parse(req.query)
+        req.query = validateQuery as Request['query']
+      }
+
+      next()
+    } catch (error) {
+      next(error)
     }
-    req.body = result.data
-    next()
   }
 }

@@ -1,7 +1,8 @@
 import { prisma } from '../../core/database'
 import type { Car, Prisma } from '../../generated/prisma/client'
 import { ERROR } from '../../shared/const'
-import type { CarCreateInput } from './car.schema'
+import type { CarCreateInput, CarUpdateInput } from './car.schema'
+import createError from 'http-errors'
 
 // ------------------------------------------------------------------------------
 // Helpers
@@ -33,11 +34,28 @@ function normalizeCar(input: CarCreateInput): Prisma.CarCreateInput {
 
 export const create = async (input: CarCreateInput): Promise<Car> => {
   const existingCar = await prisma.car.findUnique({ where: { vehicleId: input.vehicleId } })
-  if (existingCar) throw new Error(ERROR.alreadyExists('Vehicle'))
+  if (existingCar) throw new createError.NotFound(ERROR.alreadyExists('Vehicle'))
 
   const carInput = normalizeCar(input)
-  const carResult = await prisma.car.create({ data: { ...carInput } })
+  const carResult: Car = await prisma.car.create({ data: { ...carInput } })
 
-  const data: Car = carResult
-  return data
+  return carResult
+}
+
+export const update = async (id: string, input: CarUpdateInput): Promise<Car> => {
+  const existingCar = await prisma.car.findUnique({ where: { id } })
+  if (!existingCar) throw new createError.NotFound(ERROR.notFound('Car'))
+
+  const isDuplicate = await prisma.car.findUnique({
+    where: { vehicleId: input.vehicleId, NOT: { id } },
+  })
+  if (isDuplicate) throw new createError.Conflict(ERROR.alreadyExists('Vehicle'))
+
+  const carInput = normalizeCar(input)
+  const carResult: Car = await prisma.car.update({
+    where: { id },
+    data: { ...carInput },
+  })
+
+  return carResult
 }

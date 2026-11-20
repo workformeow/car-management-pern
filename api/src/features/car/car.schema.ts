@@ -33,8 +33,15 @@ const createSchema = z.object({
   imageUrl: z.httpUrl().nullish(),
 })
 
+const idParamsSchema = z.object({
+  id: z.string({ error: ERROR.requiredField('Car id') }),
+})
+
 export const carSchema = {
   create: { body: createSchema },
+  update: { parmas: idParamsSchema, body: createSchema },
 } as const
 
 export type CarCreateInput = z.infer<typeof createSchema>
+export type CarUpdateInput = z.infer<typeof createSchema>
+export type CardIdParams = z.infer<typeof idParamsSchema>
