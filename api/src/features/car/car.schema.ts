@@ -38,10 +38,11 @@ const idParamsSchema = z.object({
 })
 
 export const carSchema = {
+  get: { params: idParamsSchema },
   create: { body: createSchema },
   update: { parmas: idParamsSchema, body: createSchema },
 } as const
 
 export type CarCreateInput = z.infer<typeof createSchema>
 export type CarUpdateInput = z.infer<typeof createSchema>
-export type CardIdParams = z.infer<typeof idParamsSchema>
+export type CarIdParams = z.infer<typeof idParamsSchema>

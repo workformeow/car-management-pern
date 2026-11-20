@@ -11,6 +11,7 @@ export const LOG = {
 
 export const SUCCESS = {
   list: (name: string) => `Listed ${name} successfully`,
+  get: (name: string) => `Get ${name} successfully`,
   create: (name: string) => `Created ${name} successfully`,
   update: (name: string) => `Updated ${name} successfully`,
   delete: (name: string) => `Deleted ${name} successfully`,

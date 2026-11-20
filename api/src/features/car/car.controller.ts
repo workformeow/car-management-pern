@@ -1,8 +1,36 @@
 import type { NextFunction, Request, Response } from 'express'
-import type { CarCreateInput, CardIdParams, CarUpdateInput } from './car.schema'
+import type { CarCreateInput, CarIdParams, CarUpdateInput } from './car.schema'
 import { ERROR, SUCCESS } from '../../shared/const'
 import type { Car } from '../../generated/prisma/client'
 import * as carService from './car.service'
+
+export const list = async (_req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const data: Car[] = await carService.list()
+    res.json({
+      message: SUCCESS.list('car'),
+      data,
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+
+export const get = async (
+  req: Request<CarIdParams>,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const data: Car = await carService.get(req.params.id)
+    res.json({
+      message: SUCCESS.get('car'),
+      data,
+    })
+  } catch (error) {
+    next(error)
+  }
+}
 
 export const create = async (
   req: Request<unknown, unknown, CarCreateInput>,
@@ -21,7 +49,7 @@ export const create = async (
 }
 
 export const update = async (
-  req: Request<CardIdParams, unknown, CarUpdateInput>,
+  req: Request<CarIdParams, unknown, CarUpdateInput>,
   res: Response,
   next: NextFunction
 ): Promise<void> => {

@@ -32,6 +32,25 @@ function normalizeCar(input: CarCreateInput): Prisma.CarCreateInput {
 // * Exported
 // ------------------------------------------------------------------------------
 
+export const list = async (): Promise<Car[]> => {
+  const cars = prisma.car.findMany({
+    orderBy: [
+      {
+        createdAt: 'desc',
+      },
+    ],
+  })
+
+  return cars
+}
+
+export const get = async (id: string): Promise<Car> => {
+  const existingCar = await prisma.car.findUnique({ where: { id } })
+  if (!existingCar) throw new createError.NotFound(ERROR.notFound('Car'))
+
+  return existingCar
+}
+
 export const create = async (input: CarCreateInput): Promise<Car> => {
   const existingCar = await prisma.car.findUnique({ where: { vehicleId: input.vehicleId } })
   if (existingCar) throw new createError.NotFound(ERROR.alreadyExists('Vehicle'))

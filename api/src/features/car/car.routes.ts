@@ -5,5 +5,7 @@ import * as carController from './car.controller'
 
 export const carRouter = Router()
 
+carRouter.get('/', carController.list)
+carRouter.get('/:id', validate(carSchema.get), carController.get)
 carRouter.post('/', validate(carSchema.create), carController.create)
 carRouter.put('/:id', validate(carSchema.update), carController.update)
