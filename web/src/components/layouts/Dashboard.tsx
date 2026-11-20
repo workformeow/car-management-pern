@@ -4,8 +4,8 @@ import {
   CarOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  UnorderedListOutlined,
   UploadOutlined,
-  UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons'
 
@@ -14,8 +14,8 @@ const { Header, Sider, Content } = Layout
 const items = [
   {
     key: '1',
-    icon: <UserOutlined />,
-    label: 'nav 1',
+    icon: <UnorderedListOutlined />,
+    label: 'List Cars',
   },
   {
     key: '2',
@@ -40,7 +40,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="flex h-16 items-center justify-center gap-2 text-white">
           <CarOutlined className="text-lg" />
-          <span className="text-lg font-bold">Car Manage</span>
+          <span className="text-lg font-bold">{!collapsed && 'Car Manage'}</span>
         </div>
 
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={items} />

@@ -3,4 +3,4 @@ import { carRouter } from './features/car'
 
 export const router = Router()
 
-router.use('/api/car', carRouter)
+router.use('/api/cars', carRouter)
