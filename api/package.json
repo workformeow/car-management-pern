@@ -1,11 +1,15 @@
 {
-  "name": "api",
+  "name": "car-management-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "tsx --watch src/main.ts",
-    "test": "vitest"
+    "test": "vitest",
+    "db:start": "docker compose up -d --wait postgres",
+    "db:stop": "docker stop postgres",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +31,6 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
     "@types/node": "^26.6.6",
     "@types/pg": "^8.23.1",
     "prisma": "^7.10.1",

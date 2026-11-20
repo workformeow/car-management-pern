@@ -1,0 +1,32 @@
+enum FuelType {
+  HYBRID
+  EV
+  PHEV
+  GASOLINE
+}
+
+enum Status {
+  READY
+  BOOKED
+  MAINTAIN
+  DISCHARGE
+}
+
+model Car {
+  id String @id @default(cuid())
+  registrationNumber Int
+  brand             String
+  model             String
+  notes             String
+  vehicleId         String
+  seats             Int
+  province          String
+  year              Int
+  fuelType          FuelType
+  mileage           Int
+  color             String
+  status            Status
+  imageUrl          String
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
