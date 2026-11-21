@@ -19,3 +19,12 @@ npm install
 cd api && npm run dev   # http://localhost:3000
 cd web && npm run dev   # http://localhost:5173
 ```
+
+## Tech Stack
+
+- React
+- Express
+- Zod
+- Ant Design
+- Prisma
+- Postgres
