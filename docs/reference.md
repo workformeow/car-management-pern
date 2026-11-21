@@ -29,3 +29,5 @@
 ### https://stackoverflow.com/questions/76911176/how-do-i-make-my-web-site-respect-users-dark-mode-settings-with-antd
 
 ### https://medium.com/@wolfflucas/the-definitive-guide-to-make-api-calls-in-react-4c4da98f4d1c
+
+### https://stackoverflow.com/questions/41285211/overriding-interface-property-type-defined-in-typescript-d-ts-file

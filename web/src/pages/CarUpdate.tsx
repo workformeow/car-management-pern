@@ -1,7 +1,7 @@
 import { api } from '../lib/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CarForm } from '../components/ui/CarForm'
-import type { Car, CreateCar } from '../types/car'
+import type { Car, CreateCarForm } from '../types/car'
 import { useEffect, useState } from 'react'
 import LoadingSpin from '../components/ui/Loading'
 
@@ -18,7 +18,7 @@ export default function CarUpdate() {
       .finally(() => setLoading(false))
   }, [id])
 
-  const handleSubmit = async (values: CreateCar) => {
+  const handleSubmit = async (values: CreateCarForm) => {
     await api.updateCar(id!, values)
     navigate('/')
   }

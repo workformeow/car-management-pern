@@ -1,16 +1,18 @@
 import { DeleteFilled, EditOutlined } from '@ant-design/icons'
-import { Card, Tag } from 'antd'
+import { Button, Card, Tag } from 'antd'
 import type { Car } from '../../types/car'
 import { statusColor, statusLabel } from '../../const/car'
 import { useNavigate } from 'react-router-dom'
+import { Confirm } from './Confirm'
 
 interface CarCardProps {
   car: Car
+  onRemove: (id: string) => void
 }
 
 const PLACEHOLDER_IMG = 'https://placehold.co/600x400?text=No+Image'
 
-export function CarCard({ car }: CarCardProps) {
+export function CarCard({ car, onRemove }: CarCardProps) {
   const navigate = useNavigate()
   const tagLabel = statusLabel[car.status]
   const tagColor = statusColor[car.status]
@@ -31,7 +33,10 @@ export function CarCard({ car }: CarCardProps) {
           onClick={() => navigate(`/${car.id}/update`)}
           style={{ color: 'lightgreen' }}
         />,
-        <DeleteFilled key="delete" />,
+
+        <Confirm key="delete" confirm={() => onRemove(car.id)}>
+          <Button type="text" danger block icon={<DeleteFilled />} />
+        </Confirm>,
       ]}
     >
       <div className="flex flex-col gap-2">

@@ -33,4 +33,5 @@ export interface Car {
   updatedAt: string
 }
 
-export type CreateCar = Omit<Car, 'id' | 'createdAt' | 'updatedAt'>
+export type CreateCarForm = Omit<Car, 'id' | 'createdAt' | 'updatedAt'>
+export type CreateCarInput = Omit<CreateCarForm, 'year'> & { year: string }

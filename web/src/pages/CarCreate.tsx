@@ -1,4 +1,4 @@
-import type { CreateCar } from '../types/car'
+import type { CreateCarForm } from '../types/car'
 import { api } from '../lib/api'
 import { useNavigate } from 'react-router-dom'
 import { CarForm } from '../components/ui/CarForm'
@@ -6,7 +6,7 @@ import { CarForm } from '../components/ui/CarForm'
 export default function CarCreate() {
   const navigate = useNavigate()
 
-  const handleSubmit = async (values: CreateCar) => {
+  const handleSubmit = async (values: CreateCarForm) => {
     await api.createCar(values)
     navigate('/')
   }

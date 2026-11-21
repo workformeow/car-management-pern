@@ -7,7 +7,7 @@ import LoadingSpin from '../components/ui/Loading'
 export default function Home() {
   const [cars, setCars] = useState<Car[]>([])
   const [loading, setLoading] = useState(true)
-  const [refetch] = useState(false)
+  const [refetch, setRefetch] = useState(false)
 
   useEffect(() => {
     api
@@ -21,10 +21,15 @@ export default function Home() {
     return <LoadingSpin />
   }
 
+  async function onRemove(id: string) {
+    await api.deleteCar(id).then()
+    setRefetch((refresh) => !refresh)
+  }
+
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
       {cars.map((car) => (
-        <CarCard key={car.id} car={car} />
+        <CarCard key={car.id} car={car} onRemove={onRemove} />
       ))}
     </div>
   )
