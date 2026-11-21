@@ -54,7 +54,7 @@ export function CarCard({ car, onRemove }: CarCardProps) {
 
         <hr className="text-gray-500" />
 
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           <div className="flex flex-col gap-1">
             <span className="text-xs text-gray-400">Seats</span>
             <span className="text-base">{car.seats} seats</span>
@@ -85,7 +85,7 @@ export function CarCard({ car, onRemove }: CarCardProps) {
             <span className="text-base">{car.registrationNumber}</span>
           </div>
 
-          <div className="col-span-2 flex flex-col gap-1">
+          <div className="flex flex-col gap-1 md:col-span-2">
             <span className="text-xs text-gray-400">Notes</span>
             <span className="text-base">{car.notes || '-'}</span>
           </div>

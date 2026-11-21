@@ -34,7 +34,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
   } = theme.useToken()
 
   return (
-    <Layout className="h-dvh">
+    <Layout className="h-full min-h-dvh!">
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="flex h-16 items-center justify-center gap-2 text-white">
           <CarOutlined className="text-lg" />
