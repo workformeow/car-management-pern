@@ -13,7 +13,7 @@ const createSchema = z.object({
     .regex(thaiRegistrationNumberRegex, { error: ERROR.invalidField('registrationNumber') }),
   brand: z.string({ error: ERROR.requiredField('brand') }),
   model: z.string({ error: ERROR.requiredField('model') }),
-  notes: z.string().optional(),
+  notes: z.string().nullish(),
   vehicleId: z
     .string({ error: ERROR.requiredField('vehicleId') })
     .trim()

@@ -70,9 +70,9 @@ export function CarForm({ initialValues, onSubmit }: CarFormProps) {
         </Form.Item>
 
         <Form.Item<CreateCar>
-          label="Vehicle Identification Number"
+          label="Vehicle Identification"
           name="vehicleId"
-          rules={[required('Vehicle Identification Number'), pattern(vehicleRegex)]}
+          rules={[required('Vehicle Identification'), pattern(vehicleRegex)]}
         >
           <Input placeholder="MR0FB8CD5N0123458" />
         </Form.Item>

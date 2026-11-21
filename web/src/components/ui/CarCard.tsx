@@ -74,6 +74,21 @@ export function CarCard({ car, onRemove }: CarCardProps) {
             <span className="text-xs text-gray-400">Color</span>
             <span className="text-base">{car.color}</span>
           </div>
+
+          <div className="flex flex-col gap-1">
+            <span className="text-xs text-gray-400">Vehicle Identification</span>
+            <span className="text-base">{car.vehicleId}</span>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <span className="text-xs text-gray-400">Registration Number</span>
+            <span className="text-base">{car.registrationNumber}</span>
+          </div>
+
+          <div className="col-span-2 flex flex-col gap-1">
+            <span className="text-xs text-gray-400">Notes</span>
+            <span className="text-base">{car.notes || '-'}</span>
+          </div>
         </div>
       </div>
     </Card>
